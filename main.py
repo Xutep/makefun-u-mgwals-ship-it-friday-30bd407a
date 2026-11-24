@@ -20,6 +20,8 @@ ENTRY = (
 
 
 def main() -> None:
+    # Gate: the entry must be exactly one line (1-159 chars, UTF-8).
+    assert "\n" not in ENTRY and 1 <= len(ENTRY) <= 159, "entry violates gate"
     os.makedirs("/output", exist_ok=True)
     path = "/output/entry.txt"
     with open(path, "w", encoding="utf-8", newline="\n") as fh:
